@@ -1,4 +1,12 @@
-const SearchTask = () => {
+import { useState } from "react";
+
+const SearchTask = ({ onSearch }) => {
+  const [searchValue, setSearchValue] = useState();
+
+  const handleClick = (event) => {
+    event.preventDefault();
+    onSearch(searchValue);
+  };
   return (
     <div className="p-2 flex justify-end">
       <form>
@@ -9,11 +17,14 @@ const SearchTask = () => {
               id="search-dropdown"
               className="z-20 block w-full bg-gray-800 px-4 py-2 pr-10 focus:outline-none"
               placeholder="Search Task"
+              value={searchValue}
+              onChange={() => setSearchValue(event.target.value)}
               required
             />
             <button
               type="submit"
               className="absolute right-2 top-0 h-full rounded-e-lg text-white md:right-4"
+              onClick={handleClick}
             >
               <svg
                 className="h-4 w-4"
