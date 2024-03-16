@@ -35,11 +35,13 @@ const TaskBoard = () => {
     setOpenTaskModal(false);
   };
 
+  // handle edit
   const handleEditTask = (task) => {
     setTaskToUpdate(task);
     setOpenTaskModal(true);
   };
 
+  // handle close click
   const handleCloseClick = () => {
     setOpenTaskModal(false);
     setTaskToUpdate(null);
